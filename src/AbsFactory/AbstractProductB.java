@@ -1,5 +1,5 @@
 package AbsFactory;
 
 public interface AbstractProductB {
-    abstract void showInfo();
+    void showInfo();
 }

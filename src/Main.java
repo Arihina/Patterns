@@ -1,7 +1,7 @@
-import AbsFactory.AbstractProductA;
 import AbsFactory.ConcreteFactory1;
 import AbsFactory.ConcreteFactory2;
-import AbsFactory.ConcreteProductA1;
+import FactoryMethod.Factory;
+import FactoryMethod.Product;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +10,8 @@ public class Main {
                 setParam2(1.2).
                 setParam3(" ").
                 build();
+
+        // Abstract Factory
 
         ConcreteFactory1 factory1 = new ConcreteFactory1();
         var product1 = factory1.createProductA();
@@ -24,5 +26,13 @@ public class Main {
 
         product3.showInfo();
         product4.showInfo();
+
+        // Factory Method
+
+        Product pr1 = new Factory().getProduct('1');
+        Product pr2 = new Factory().getProduct('2');
+
+        pr1.showInfo();
+        pr2.showInfo();
     }
 }
