@@ -2,9 +2,13 @@ import AbsFactory.ConcreteFactory1;
 import AbsFactory.ConcreteFactory2;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
+import Singleton.SingletonV3;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Builder
+
         ConcreteBuilder b = new ConcreteBuilder.Builder().
                 setParam1(1).
                 setParam2(1.2).
@@ -34,5 +38,12 @@ public class Main {
 
         pr1.showInfo();
         pr2.showInfo();
+
+        // Prototype
+        Prototype prototype = new Prototype(123, "qwerty");
+        Prototype newPrototype = prototype.copy();
+
+        // Singleton
+        SingletonV3.getSingleton();
     }
 }
