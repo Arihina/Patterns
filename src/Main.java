@@ -45,5 +45,9 @@ public class Main {
 
         // Singleton
         SingletonV3.getSingleton();
+
+        // Adapter
+        Adapt obj = new Adapter();
+        obj.doSomething();
     }
 }
