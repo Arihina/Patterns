@@ -1,5 +1,9 @@
 import AbsFactory.ConcreteFactory1;
 import AbsFactory.ConcreteFactory2;
+import Adapter.Adapter;
+import Bridge.ConcreteImplementation1;
+import Bridge.ConcreteImplementation2;
+import Bridge.RefinedAbstraction;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
 import Singleton.SingletonV3;
@@ -46,8 +50,15 @@ public class Main {
         // Singleton
         SingletonV3.getSingleton();
 
-        // Adapter
-        Adapt obj = new Adapter();
+        // Adapter.Adapter
+        Adapter obj = new Adapter();
         obj.doSomething();
+
+        // Bridge
+        RefinedAbstraction refinedAbstraction1 = new RefinedAbstraction(new ConcreteImplementation1());
+        refinedAbstraction1.someMethod();
+
+        RefinedAbstraction refinedAbstraction2 = new RefinedAbstraction(new ConcreteImplementation2());
+        refinedAbstraction2.someMethod();
     }
 }
