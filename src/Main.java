@@ -50,7 +50,7 @@ public class Main {
         // Singleton
         SingletonV3.getSingleton();
 
-        // Adapter.Adapter
+        // Adapter
         Adapter obj = new Adapter();
         obj.doSomething();
 
@@ -60,5 +60,8 @@ public class Main {
 
         RefinedAbstraction refinedAbstraction2 = new RefinedAbstraction(new ConcreteImplementation2());
         refinedAbstraction2.someMethod();
+
+        // Composite
+
     }
 }
