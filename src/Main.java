@@ -7,6 +7,8 @@ import Bridge.RefinedAbstraction;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
 import Singleton.SingletonV3;
+import Composite.*;
+import Decorator.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,6 +64,24 @@ public class Main {
         refinedAbstraction2.someMethod();
 
         // Composite
+        Leaf leaf1 = new Leaf();
+        Leaf leaf2 = new Leaf();
 
+        Composite comp1 = new Composite();
+        comp1.add(leaf1);
+
+        Composite comp2 = new Composite();
+        comp2.add(leaf1);
+
+        Composite comp3 = new Composite();
+        comp3.add(comp1);
+        comp3.add(comp2);
+
+        comp3.operation();
+
+        // Decorator
+        Decorator decorator = new ConcreteDecorator(new ConcreteComponent());
+        decorator.standardMethod();
+        decorator.newMethod();
     }
 }
