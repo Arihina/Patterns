@@ -7,7 +7,7 @@ public class RefinedAbstraction extends AbstractionClass {
 
     @Override
     public void someMethod() {
-        System.out.println("Refined Abstraction do some method");
+        System.out.println("Refined Abstraction does some method");
         implementor.implementMethod();
     }
 }

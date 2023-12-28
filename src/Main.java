@@ -9,6 +9,7 @@ import FactoryMethod.Product;
 import Singleton.SingletonV3;
 import Composite.*;
 import Decorator.*;
+import Facade.Facade;
 
 public class Main {
     public static void main(String[] args) {
@@ -71,7 +72,7 @@ public class Main {
         comp1.add(leaf1);
 
         Composite comp2 = new Composite();
-        comp2.add(leaf1);
+        comp2.add(leaf2);
 
         Composite comp3 = new Composite();
         comp3.add(comp1);
@@ -83,5 +84,9 @@ public class Main {
         Decorator decorator = new ConcreteDecorator(new ConcreteComponent());
         decorator.standardMethod();
         decorator.newMethod();
+
+        // Facade
+        Facade f = new Facade();
+        f.start();
     }
 }
