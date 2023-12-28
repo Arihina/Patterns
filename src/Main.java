@@ -6,6 +6,8 @@ import Bridge.ConcreteImplementation2;
 import Bridge.RefinedAbstraction;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
+import Proxy.Proxy;
+import Proxy.Subject;
 import Singleton.SingletonV3;
 import Composite.*;
 import Decorator.*;
@@ -94,5 +96,10 @@ public class Main {
         FlyweightFactory flyweightFactory = new FlyweightFactory();
         flyweightFactory.getFlyweight(1).func();
         flyweightFactory.getFlyweight(2).func();
+
+        // Proxy
+        Subject proxy = new Proxy();
+        proxy.func1();
+        proxy.func2();
     }
 }
