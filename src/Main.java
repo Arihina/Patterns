@@ -10,6 +10,7 @@ import Singleton.SingletonV3;
 import Composite.*;
 import Decorator.*;
 import Facade.Facade;
+import Flyweight.FlyweightFactory;
 
 public class Main {
     public static void main(String[] args) {
@@ -86,7 +87,12 @@ public class Main {
         decorator.newMethod();
 
         // Facade
-        Facade f = new Facade();
-        f.start();
+        Facade facade = new Facade();
+        facade.start();
+
+        // Flyweight
+        FlyweightFactory flyweightFactory = new FlyweightFactory();
+        flyweightFactory.getFlyweight(1).func();
+        flyweightFactory.getFlyweight(2).func();
     }
 }
