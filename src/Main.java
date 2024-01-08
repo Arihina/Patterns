@@ -4,6 +4,8 @@ import Adapter.Adapter;
 import Bridge.ConcreteImplementation1;
 import Bridge.ConcreteImplementation2;
 import Bridge.RefinedAbstraction;
+import Command.Command;
+import Command.Receiver;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
 import Proxy.Proxy;
@@ -14,6 +16,7 @@ import Decorator.*;
 import Facade.Facade;
 import Flyweight.FlyweightFactory;
 import CoR.*;
+import Command.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -113,5 +116,17 @@ public class Main {
 
         handler1.handle(1);
         handler1.handle(3);
+
+        // Command
+        Receiver receiver = new Receiver();
+
+        Command command1 = new ConcreteCommand1(receiver);
+        Command command2 = new ConcreteCommand2(receiver);
+
+        Invoker invoker = new Invoker();
+        invoker.addCommand(command1);
+        invoker.addCommand(command2);
+
+        invoker.execute();
     }
 }
