@@ -13,6 +13,7 @@ import Composite.*;
 import Decorator.*;
 import Facade.Facade;
 import Flyweight.FlyweightFactory;
+import CoR.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -101,5 +102,16 @@ public class Main {
         Subject proxy = new Proxy();
         proxy.func1();
         proxy.func2();
+
+        // Chain of Responsibility
+        AbsHandler handler1 = new ConcreteHandler1();
+        AbsHandler handler2 = new ConcreteHandler2();
+        AbsHandler handler3 = new ConcreteHandler1();
+
+        handler1.setSuccessor(handler2);
+        handler2.setSuccessor(handler3);
+
+        handler1.handle(1);
+        handler1.handle(3);
     }
 }
