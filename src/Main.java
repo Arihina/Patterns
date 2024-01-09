@@ -8,6 +8,7 @@ import Command.Command;
 import Command.Receiver;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
+import Mediator.Mediator;
 import Proxy.Proxy;
 import Proxy.Subject;
 import Singleton.SingletonV3;
@@ -19,6 +20,7 @@ import CoR.*;
 import Command.*;
 import Iterator.ConcreteAggregate;
 import Iterator.Iterator;
+import Mediator.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -142,5 +144,17 @@ public class Main {
         while (!iterator.isDone()) {
             System.out.println(iterator.next());
         }
+
+        // Mediator
+        ConcreteMediator mediator = new ConcreteMediator();
+
+        Colleague1 colleague1 = new Colleague1(mediator);
+        Colleague2 colleague2 = new Colleague2(mediator);
+
+        mediator.setColleague1(colleague1);
+        mediator.setColleague2(colleague2);
+
+        colleague1.send("Some text 1");
+        colleague2.send("Some text 2");
     }
 }
