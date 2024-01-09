@@ -8,7 +8,6 @@ import Command.Command;
 import Command.Receiver;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
-import Mediator.Mediator;
 import Proxy.Proxy;
 import Proxy.Subject;
 import Singleton.SingletonV3;
@@ -21,6 +20,7 @@ import Command.*;
 import Iterator.ConcreteAggregate;
 import Iterator.Iterator;
 import Mediator.*;
+import Memento.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -58,17 +58,21 @@ public class Main {
         pr2.showInfo();
 
         // Prototype
+
         Prototype prototype = new Prototype(123, "qwerty");
         Prototype newPrototype = prototype.copy();
 
         // Singleton
+
         SingletonV3.getSingleton();
 
         // Adapter
+
         Adapter obj = new Adapter();
         obj.doSomething();
 
         // Bridge
+
         RefinedAbstraction refinedAbstraction1 = new RefinedAbstraction(new ConcreteImplementation1());
         refinedAbstraction1.someMethod();
 
@@ -76,6 +80,7 @@ public class Main {
         refinedAbstraction2.someMethod();
 
         // Composite
+
         Leaf leaf1 = new Leaf();
         Leaf leaf2 = new Leaf();
 
@@ -92,25 +97,30 @@ public class Main {
         comp3.operation();
 
         // Decorator
+
         Decorator decorator = new ConcreteDecorator(new ConcreteComponent());
         decorator.standardMethod();
         decorator.newMethod();
 
         // Facade
+
         Facade facade = new Facade();
         facade.start();
 
         // Flyweight
+
         FlyweightFactory flyweightFactory = new FlyweightFactory();
         flyweightFactory.getFlyweight(1).func();
         flyweightFactory.getFlyweight(2).func();
 
         // Proxy
+
         Subject proxy = new Proxy();
         proxy.func1();
         proxy.func2();
 
         // Chain of Responsibility
+
         AbsHandler handler1 = new ConcreteHandler1();
         AbsHandler handler2 = new ConcreteHandler2();
         AbsHandler handler3 = new ConcreteHandler1();
@@ -122,6 +132,7 @@ public class Main {
         handler1.handle(3);
 
         // Command
+
         Receiver receiver = new Receiver();
 
         Command command1 = new ConcreteCommand1(receiver);
@@ -134,6 +145,7 @@ public class Main {
         invoker.execute();
 
         // Iterator
+
         ConcreteAggregate<Integer> concreteAggregate = new ConcreteAggregate<Integer>();
 
         for (int i = 0; i < 10; i++) {
@@ -146,6 +158,7 @@ public class Main {
         }
 
         // Mediator
+
         ConcreteMediator mediator = new ConcreteMediator();
 
         Colleague1 colleague1 = new Colleague1(mediator);
@@ -156,5 +169,20 @@ public class Main {
 
         colleague1.send("Some text 1");
         colleague2.send("Some text 2");
+
+        // Memento
+
+        Originator originator = new Originator();
+        originator.setState("start");
+        System.out.println("State is " + originator.getState());
+
+        Caretaker caretaker = new Caretaker();
+        caretaker.setMemento(originator.save());
+
+        originator.setState("stop");
+        System.out.println("State is " + originator.getState());
+
+        originator.restore(caretaker.getMemento());
+        System.out.println("State is " + originator.getState());
     }
 }
