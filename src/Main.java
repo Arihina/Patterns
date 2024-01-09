@@ -17,6 +17,8 @@ import Facade.Facade;
 import Flyweight.FlyweightFactory;
 import CoR.*;
 import Command.*;
+import Iterator.ConcreteAggregate;
+import Iterator.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -128,5 +130,17 @@ public class Main {
         invoker.addCommand(command2);
 
         invoker.execute();
+
+        // Iterator
+        ConcreteAggregate<Integer> concreteAggregate = new ConcreteAggregate<Integer>();
+
+        for (int i = 0; i < 10; i++) {
+            concreteAggregate.setElem(i);
+        }
+
+        Iterator iterator = concreteAggregate.getIterator();
+        while (!iterator.isDone()) {
+            System.out.println(iterator.next());
+        }
     }
 }
