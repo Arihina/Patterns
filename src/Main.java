@@ -21,6 +21,7 @@ import Iterator.ConcreteAggregate;
 import Iterator.Iterator;
 import Mediator.*;
 import Memento.*;
+import Observer.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -184,5 +185,13 @@ public class Main {
 
         originator.restore(caretaker.getMemento());
         System.out.println("State is " + originator.getState());
+
+        // Observer
+
+        ConcreteSubject subject = new ConcreteSubject();
+        ConcreteObserver observer = new ConcreteObserver(subject);
+
+        subject.setState("1");
+        subject.setState("2");
     }
 }
