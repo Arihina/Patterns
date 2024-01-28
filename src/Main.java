@@ -22,6 +22,7 @@ import Iterator.Iterator;
 import Mediator.*;
 import Memento.*;
 import Observer.*;
+import State.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -193,5 +194,12 @@ public class Main {
 
         subject.setState("1");
         subject.setState("2");
+
+        // State
+
+        Context context = new Context(new ConcreteState1());
+        context.action();
+        context.setState(new ConcreteState2());
+        context.action();
     }
 }
