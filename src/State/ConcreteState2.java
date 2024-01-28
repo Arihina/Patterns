@@ -9,7 +9,12 @@ public class ConcreteState2 implements State {
     }
 
     @Override
-    public void action(Context context) {
-        System.out.println("Action from " + state);
+    public void action2(Context context) {
+        System.out.println("Action 2 from " + state);
+    }
+
+    @Override
+    public void action1(Context context) {
+        System.out.println("The action is not available in this state");
     }
 }

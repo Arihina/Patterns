@@ -23,6 +23,7 @@ import Mediator.*;
 import Memento.*;
 import Observer.*;
 import State.*;
+import Strategy.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -198,8 +199,18 @@ public class Main {
         // State
 
         Context context = new Context(new ConcreteState1());
-        context.action();
+        context.action1();
+        context.action2();
         context.setState(new ConcreteState2());
-        context.action();
+        context.action1();
+        context.action2();
+
+        // Strategy
+        ContextStrategy strategy = new ContextStrategy();
+        strategy.action();
+        strategy.setStrategy(new ConcreteStrategy1());
+        strategy.action();
+        strategy.setStrategy(new ConcreteStrategy2());
+        strategy.action();
     }
 }

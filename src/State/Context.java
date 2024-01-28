@@ -15,7 +15,11 @@ public class Context {
         return state;
     }
 
-    public void action() {
-        state.action(this);
+    public void action1() {
+        state.action1(this);
+    }
+
+    public void action2() {
+        state.action2(this);
     }
 }
