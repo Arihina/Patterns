@@ -24,6 +24,7 @@ import Memento.*;
 import Observer.*;
 import State.*;
 import Strategy.*;
+import TemplateMethod.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -206,11 +207,19 @@ public class Main {
         context.action2();
 
         // Strategy
+
         ContextStrategy strategy = new ContextStrategy();
         strategy.action();
         strategy.setStrategy(new ConcreteStrategy1());
         strategy.action();
         strategy.setStrategy(new ConcreteStrategy2());
         strategy.action();
+
+        // Template Method
+
+        ConcreteClass1 concreteClass1 = new ConcreteClass1();
+        concreteClass1.action();
+        ConcreteClass2 concreteClass2 = new ConcreteClass2();
+        concreteClass2.action();
     }
 }
