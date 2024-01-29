@@ -8,6 +8,9 @@ import Command.Command;
 import Command.Receiver;
 import FactoryMethod.Factory;
 import FactoryMethod.Product;
+import Interpreter.CharsDeleter;
+import Interpreter.ContextExpr;
+import Interpreter.NumsDeleter;
 import Proxy.Proxy;
 import Proxy.Subject;
 import Singleton.SingletonV3;
@@ -230,5 +233,16 @@ public class Main {
         Visitor visitor = new ConcreteVisitor();
         concreteElement1.accept(visitor);
         concreteElement2.accept(visitor);
+
+        // Interpreter
+
+        ContextExpr contextExpr1 = new ContextExpr("0a1a2");
+        NumsDeleter numsDeleter = new NumsDeleter();
+        var newContextExpr1 = numsDeleter.interpret(contextExpr1);
+        System.out.println(newContextExpr1);
+        ContextExpr contextExpr2 = new ContextExpr("0a1a2");
+        CharsDeleter charsDeleter = new CharsDeleter();
+        var newContextExpr2 = charsDeleter.interpret(contextExpr2);
+        System.out.println(newContextExpr2);
     }
 }
