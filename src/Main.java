@@ -25,6 +25,7 @@ import Observer.*;
 import State.*;
 import Strategy.*;
 import TemplateMethod.*;
+import Visitor.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -221,5 +222,13 @@ public class Main {
         concreteClass1.action();
         ConcreteClass2 concreteClass2 = new ConcreteClass2();
         concreteClass2.action();
+
+        // Visitor
+
+        Element concreteElement1 = new ConcreteElement1();
+        Element concreteElement2 = new ConcreteElement2();
+        Visitor visitor = new ConcreteVisitor();
+        concreteElement1.accept(visitor);
+        concreteElement2.accept(visitor);
     }
 }
